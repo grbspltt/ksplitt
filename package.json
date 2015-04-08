@@ -1,0 +1,25 @@
+{
+  "name": "ksplitt",
+  "version": "0.0.1",
+  "description": "Just a toolbelt",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/grbspltt/ksplitt.git"
+  },
+  "keywords": [
+    "ksplitt"
+  ],
+  "author": "ksplitt",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/grbspltt/ksplitt/issues"
+  },
+  "homepage": "https://github.com/grbspltt/ksplitt",
+  "dependencies": {
+    "bluebird": "^2.9.24"
+  }
+}
