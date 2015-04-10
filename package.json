@@ -1,6 +1,6 @@
 {
   "name": "ksplitt",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Just a toolbelt",
   "main": "index.js",
   "scripts": {
@@ -20,6 +20,6 @@
   },
   "homepage": "https://github.com/grbspltt/ksplitt",
   "dependencies": {
-    "bluebird": "^2.9.24"
+    "bluebird": "2.9.24"
   }
 }

@@ -4,13 +4,13 @@
 var Promise = require('bluebird');
 
 module.exports = exports = {
-    unSettle : /**
-     * unSettle function takes the returned array from the bluebird settle method and removes the extra
-     * properties _bitField & _settledValue. Returns a promise of an array.
-      * @param array
-     * @returns {Array}
-     */
-        function(array){
+/**
+ * unSettle function takes the returned array from the bluebird settle method and removes the extra
+ * properties _bitField & _settledValue. Returns a promise of an array.
+ * @param array
+ * @returns {Array}
+ */
+    unSettle : function(array){
         var b = {},
             c = [];
         return new Promise(function(resolve){
@@ -27,7 +27,8 @@ module.exports = exports = {
             }
             return c;
         }
-    }, /**
+    },
+    /**
      * Extends an object with a defaults object, similar to underscore's _.defaults
      * Used for abstracting parameter handling from API methods
      * @param object Configuration object to extend
@@ -53,5 +54,18 @@ module.exports = exports = {
      */
     isObject: function isObject(obj) {
         return obj && toString.call(obj) === '[object Object]';
+    },
+    /**
+     *Random password generator. Default length is 5.
+     * @param length Length of password
+     * @returns {string}
+     */
+    randomPassword: function(l){
+        var length = l || 5, //default length of 5 characters
+            text = "",
+            possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        for( var i=0; i < l; i++ )
+            text += possible.charAt(Math.floor(Math.random() * possible.length));
+        return text;
     }
 };
