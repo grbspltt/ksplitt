@@ -47,7 +47,8 @@ module.exports = exports = {
         }
     }
     return object;
-}, /**
+},
+    /**
      * Tests whether supplied parameter is a true object
      * @param obj
      * @returns {*|boolean}
@@ -57,7 +58,7 @@ module.exports = exports = {
     },
     /**
      *Random password generator. Default length is 5.
-     * @param length Length of password
+     * @param {number} length Length of password
      * @returns {string}
      */
     randomPassword: function(l){
