@@ -4,12 +4,12 @@
 var Promise = require('bluebird');
 
 module.exports = exports = {
-/**
- * unSettle function takes the returned array from the bluebird settle method and removes the extra
- * properties _bitField & _settledValue. Returns a promise of an array.
- * @param array
- * @returns {Array}
- */
+    /**
+     * unSettle function takes the returned array from the bluebird settle method and removes the extra
+     * properties _bitField & _settledValue. Returns a promise of an array.
+     * @param array
+     * @returns {Array}
+     */
     unSettle : function(array){
         var b = {},
             c = [];
@@ -36,37 +36,46 @@ module.exports = exports = {
      * @returns {*|{}} Returns the combined object with default values overwritten with the config object.
      */
     defaults : function defaults(object, defs) {
-    var key;
-    object = object || {};
-    defs = defs || {};
-    // Iterate over object non-prototype properties:
-    for (key in defs) {
-        if (defs.hasOwnProperty(key)) {
-            // Replace values with defaults only if undefined (allow empty/zero values):
-            if (object[key] == null) object[key] = defs[key];
+        var key;
+        object = object || {};
+        defs = defs || {};
+        // Iterate over object non-prototype properties:
+        for (key in defs) {
+            if (defs.hasOwnProperty(key)) {
+                // Replace values with defaults only if undefined (allow empty/zero values):
+                if (object[key] == null) object[key] = defs[key];
+            }
         }
-    }
-    return object;
-},
-    /**
+        return object;
+    }, /**
      * Tests whether supplied parameter is a true object
      * @param obj
      * @returns {*|boolean}
      */
     isObject: function isObject(obj) {
         return obj && toString.call(obj) === '[object Object]';
-    },
-    /**
-     *Random password generator. Default length is 5.
-     * @param {number} length Length of password
-     * @returns {string}
+    }, /**
+     * Random Password generator. Returns new password in callback. If no callback given, promise returned.
+     * @param l {Number} Desired length of returned random password
+     * @param cb {Function} Optional
+     * @returns {*}
      */
-    randomPassword: function(l){
-        var length = l || 5, //default length of 5 characters
-            text = "",
-            possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-        for( var i=0; i < l; i++ )
-            text += possible.charAt(Math.floor(Math.random() * possible.length));
-        return text;
+    randomPassword: function(l,cb){
+        function _randPass(len){
+            var length = len || 5, //default length of 5 characters
+                ret = "",
+                opts = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+            for( var i=0; i < l; i++ )
+                ret += opts.charAt(Math.floor(Math.random() * opts.length));
+            return ret;
+        }
+        if(typeof cb === 'function'){
+            var text = _randPass(l);
+            return cb(text);
+        }
+
+        return new Promise(function(resolve){
+            resolve(_randPass(l))
+        });
     }
 };

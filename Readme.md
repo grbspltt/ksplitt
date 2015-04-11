@@ -1,4 +1,4 @@
-KSPLITT
+KSPLITT v0.0.4
 
 Just a simple toolbelt for my projects. Use if you think you know what it does.
 
@@ -22,7 +22,8 @@ isObject: Tests whether supplied parameter is a true object
           @param obj
           @returns {*|boolean}
           
-randomPassword: Random password generator. Default length is 5.
-                @param {Number} Desired length Length of password
-                @returns {string}
+randomPassword: Random password generator. Default length is 5. Returns new password in callback. If no callback given, promise returned.
+                @param l {Number} Desired length of returned random password
+                @param cb {Function} Callback function with a parameter for the returned password. Optional
+                @returns {string/Promise}
      
