@@ -1,6 +1,6 @@
 {
   "name": "ksplitt",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Just a toolbelt",
   "main": "index.js",
   "scripts": {

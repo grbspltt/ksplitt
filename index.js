@@ -65,17 +65,17 @@ module.exports = exports = {
             var length = len || 5, //default length of 5 characters
                 ret = "",
                 opts = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-            for( var i=0; i < l; i++ )
+            for( var i=0; i < length; i++ )
                 ret += opts.charAt(Math.floor(Math.random() * opts.length));
             return ret;
         }
         if(typeof cb === 'function'){
-            var text = _randPass(l);
+            var text = _randPass(length);
             return cb(text);
         }
 
         return new Promise(function(resolve){
-            resolve(_randPass(l))
+            resolve(_randPass(length))
         });
     }
 };
