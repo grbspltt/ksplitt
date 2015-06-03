@@ -1,4 +1,4 @@
-KSPLITT v0.0.4
+KSPLITT v0.0.6
 
 Just a simple toolbelt for my projects. Use if you think you know what it does.
 

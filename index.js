@@ -62,11 +62,12 @@ module.exports = exports = {
      */
     randomPassword: function(l,cb){
         function _randPass(len){
-            var length = len || 5, //default length of 5 characters
-                ret = "",
-                opts = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+            var opts = {},
+                ret = "";
+                opts.length = len || 5; //default length of 5 characters
+                opts.chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
             for( var i=0; i < length; i++ )
-                ret += opts.charAt(Math.floor(Math.random() * opts.length));
+                ret += opts.chars.charAt(Math.floor(Math.random() * opts.length));
             return ret;
         }
         if(typeof cb === 'function'){
