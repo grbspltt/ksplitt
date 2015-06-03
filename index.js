@@ -71,12 +71,12 @@ module.exports = exports = {
             return ret;
         }
         if(typeof cb === 'function'){
-            var text = _randPass(length);
+            var text = _randPass(l);
             return cb(text);
         }
 
         return new Promise(function(resolve){
-            resolve(_randPass(length))
+            resolve(_randPass(l))
         });
     }
 };
