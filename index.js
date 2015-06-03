@@ -66,7 +66,7 @@ module.exports = exports = {
                 ret = "";
                 opts.length = len || 5; //default length of 5 characters
                 opts.chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-            for( var i=0; i < length; i++ )
+            for( var i=0; i < opts.length; i++ )
                 ret += opts.chars.charAt(Math.floor(Math.random() * opts.length));
             return ret;
         }
