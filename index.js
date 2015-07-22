@@ -78,5 +78,16 @@ module.exports = exports = {
         return new Promise(function(resolve){
             resolve(_randPass(l))
         });
+    },
+    schemaTypes: {
+        /**
+         * shortDate - Mongoose getter. Usage: createdDate : { type: Date, required: true, default: Date.now, get: require('ksplitt').schemaTypes.shortDate }
+         * @param val
+         * @returns {string}
+         */
+        shortDate: function (val) {
+            if (!val) return val;
+            return (val.getMonth() + 1) + "/" + val.getDate() + "/" + val.getFullYear();
+        }
     }
 };

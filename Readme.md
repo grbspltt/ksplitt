@@ -1,4 +1,4 @@
-KSPLITT v0.0.8
+KSPLITT v0.0.9
 
 Just a simple toolbelt for my projects. Use if you think you know what it does.
 
@@ -26,4 +26,9 @@ randomPassword: Random password generator. Default length is 5. Returns new pass
                 @param l {Number} Desired length of returned random password
                 @param cb {Function} Callback function with a parameter for the returned password. Optional
                 @returns {string/Promise}
+                
+schemaTypes: Mongoose model schema types
+shortDate - Mongoose getter. Usage: createdDate : { type: Date, required: true, default: Date.now, get: require('ksplitt').schemaTypes.shortDate }
+         @param val
+         @returns {string}
      
